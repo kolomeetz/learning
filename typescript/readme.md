@@ -6,8 +6,8 @@ Declare a type:
 
 ```tsx
 type Event = {
-	title: string
-	id: number
+  title: string
+  id: number
 }
 ```
 
@@ -15,8 +15,8 @@ This type can have readonly properties, that prevents object from mutation:
 
 ```tsx
 type Event = {
-	readonly title: string
-	readonly id: number
+  readonly title: string
+  readonly id: number
 }
 ```
 
@@ -24,8 +24,8 @@ Or immutability could be added to all properties with mapped type:
 
 ```tsx
 type Event = Readonly<{
-	title: string
-	id: number
+  title: string
+  id: number
 }>
 ```
 
@@ -49,8 +49,8 @@ Literal types are types with exact values:
 
 ```tsx
 type EventNotification = {
-	eventId: number
-	opened: true
+  eventId: number
+  opened: true
 }
 ```
 
@@ -58,18 +58,18 @@ Intersection types:
 
 ```tsx
 type withTitle = {
-	title: string
+  title: string
 }
 
 type withId = {
-	id: number
+  id: number
 }
 
 type event = withId & withTitle
 // is equal to
 type event = {
-	title: string
-	id: number
+  title: string
+  id: number
 }
 ```
 
@@ -77,17 +77,17 @@ Second type overrides the first in intersection type:
 
 ```tsx
 type withOpened = {
-	opened: true
+  opened: true
 }
 
 type notification = {
-	opened: boolean
+  opened: boolean
 }
 
 type openedNotification = notification & withOpened
 // is equal to
 type openedNotification {
-	opened: true
+  opened: true
 }
 ```
 
@@ -95,12 +95,12 @@ It helps with code duplication:
 
 ```tsx
 type notification = Readonly<{
-	eventId: number
-	opened: boolean
+  eventId: number
+  opened: boolean
 }>
 
 type openedNotification = notification & {
-	readonly opened: true
+  readonly opened: true
 }
 ```
 
@@ -114,6 +114,6 @@ Optional properties:
 
 ```tsx
 type event = {
-	alarm?: Alarm
+  alarm?: Alarm
 }
 ```
